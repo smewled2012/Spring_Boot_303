@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Form</title>
+    <style>
+
+        body{
+            background-color: coral;
+            font-family: Arial;
+            padding: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<form action="#" th:action="@{/process}" th:object="${course}" method="post">
+
+    <input type="hidden" th:field="*{id}">
+    Title: <input type="text" th:field="*{title}" /> <br />
+    <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span> <br />
+    Instructor: <input type="text" th:field="*{instructor}" /> <br />
+    <span th:if="${#fields.hasErrors('instructor')}" th:errors="*{instructor}"></span> <br />
+    Description: <textarea  rows="3" th:field="*{description}" /> <br />
+    <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span> <br />
+    Credits: <input type="text" th:field="*{credit}" /> <br />
+    <span th:if="${#fields.hasErrors('credit')}" th:errors="*{credit}"></span> <br />
+
+    <br />
+    <input type="submit" value ="Submit" />
+
+</form>
+
+</body>
+</html>

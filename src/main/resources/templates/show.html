@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>show Courses</title>
+    <style>
+        body{
+            background-color: aqua;
+        }
+        .navi{
+            background-color: blanchedalmond;
+            padding: 10px;
+
+        }
+
+
+    </style>
+</head>
+<body>
+<h1> Course Catalog </h1>
+<div class="navi">
+<a href="/">Show All courses </a> <br />
+
+Title: <span th:text="${course.title}" ></span> <br />
+Instructor: <span th:text="${course.instructor}" ></span> <br />
+Description: <span th:text="${course.description}" ></span> <br />
+Credits : <span th:text="${course.credit}" ></span>  <br />
+
+<a th:href="@{/delete/{id}(id=${course.id})}">Delete this course </a>
+
+</div>
+</body>
+</html>

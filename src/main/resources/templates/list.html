@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>list of courses </title>
+    <style>
+        table, th, td,tr {
+            border: 2px solid black;
+            background-color: coral;
+        }
+        a{
+            font-family: Algerian;
+        }
+    </style>
+
+</head>
+<body>
+<a href="/add"> <h2>Register a Course </h2></a> <br/>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Instructor</th>
+        <th>Credits</th>
+        <td>Actions</td>
+
+    </tr>
+    <tr th:each="course : ${courses}">
+        <td  th:text="${course.title}" ></td>
+        <td  th:text="${course.instructor}" ></td>
+        <td  th:text="${course.credit}" ></td>
+        <td>
+            <a th:href="@{/update/{id}(id=${course.id})}" > <strong>Update</strong>  </a>
+            <a th:href="@{/detail/{id}(id=${course.id})}" > <strong>Details</strong> </a>
+            <a th:href="@{/delete/{id}(id=${course.id})}" > <strong>Delete</strong> </a>
+
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>
